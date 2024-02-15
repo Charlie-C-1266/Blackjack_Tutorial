@@ -61,7 +61,7 @@ import gymnasium as gym
 # Note: We are going to follow the rules from Sutton & Barto.
 # Other versions of the game can be found below for you to experiment.
 
-env = gym.make("Blackjack-v1", sab=True)
+env = gym.make("Blackjack-v1", natural=True, sab=False)
 
 # %%
 # .. code:: py
@@ -249,8 +249,8 @@ class BlackjackAgent:
 #
 
 # hyperparameters
-learning_rate = 0.001
-n_episodes = 100_000_000
+learning_rate = 0.01
+n_episodes = 1000_000
 start_epsilon = 1.0
 epsilon_decay = start_epsilon / (n_episodes / 2)  # reduce the exploration over time
 final_epsilon = 0.01

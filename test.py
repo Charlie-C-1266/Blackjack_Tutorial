@@ -1,11 +1,9 @@
-import gymnasium as gym
-env = gym.make("LunarLander-v2", render_mode="human")
-observation, info = env.reset(seed=42)
-for _ in range(1000):
-   action = env.action_space.sample()  # this is where you would insert your policy
-   observation, reward, terminated, truncated, info = env.step(action)
+import os
+import google.generativeai as genai
 
-   if terminated or truncated:
-      observation, info = env.reset()
+genai.configure(api_key=os.environ["API_KEY"])
 
-env.close()
+model = genai.GenerativeModel('gemini-pro')
+
+response = model.generate_content("The opposite of hot is")
+print(response.text)  # cold.
