@@ -3,3 +3,4 @@ Scripts/
 Include/*
 share
 pyvenv.cfg
+__pycache__
